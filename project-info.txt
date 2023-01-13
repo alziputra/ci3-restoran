@@ -1,0 +1,18 @@
+1. Admin Login 
+
+Username: admin
+Password: admin
+
+2. Customer Login 
+
+Username: alziputra
+Password: password
+
+
+3. Recommensai PHP Versi 7.4.12
+
+
+4. Jangan ubah nama folder proyek tanpa memperbarui $config['base_url']
+
+
+
