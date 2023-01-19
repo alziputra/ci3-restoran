@@ -2,14 +2,14 @@
 defined('BASEPATH') OR exit ('No direct script access allowed');
 
 class Admin_model extends CI_Model {
-    
+    // fungsi tampil data admin (user)
     public function getByUsername($username) {
-
         $this->db->where('username', $username);
         $admin = $this->db->get('tb_admin')->row_array();
         return $admin;
     }
     
+    // fungsi tampil semua pesanan
     public function getAllOrders() {
         $this->db->order_by('order_id','DESC');
         $this->db->select('order_id, nama_menu, quantity, harga, status, date, username, alamat');

@@ -28,7 +28,7 @@ class Category extends CI_Controller {
 
         if($this->form_validation->run() == true) {
             
-            $cat['c_name'] = $this->input->post('category');
+            $cat['kategori_nama'] = $this->input->post('category');
             $this->Category_model->create_cat($cat);
             
             $this->session->set_flashdata('cat_success', 'category added successfully');
@@ -55,7 +55,7 @@ class Category extends CI_Controller {
 
         if($this->form_validation->run() == true) {
 
-            $cat['c_name'] = $this->input->post('category');
+            $cat['kategori_nama'] = $this->input->post('category');
             $this->Category_model->update($id, $cat);
             
             $this->session->set_flashdata('cat_success', 'category added successfully');

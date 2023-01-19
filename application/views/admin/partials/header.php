@@ -35,18 +35,9 @@
                             class="nav-link">Restoran</a>
                     </li>
                     <!-- nav restoran kategori -->
-                    <li class="nav-item dropdown active">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Kategori
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="<?php echo base_url().'admin/category/';?>">Kelola
-                                Kategori</a>
-                            <a class="dropdown-item"
-                                href="<?php echo base_url().'admin/category/create_category';?>">Tambah
-                                Kategori</a>
-                        </div>
+                    <li class="nav-item active">
+                        <a href="<?php echo base_url().'admin/category/';?>"
+                            class="nav-link">Kategori</a>
                     </li>
                     <!-- nav menu restoran -->
                     <li class="nav-item dropdown active">

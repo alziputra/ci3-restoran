@@ -1,14 +1,14 @@
 <div class="container table-responsive m-t-20">
-    <h2 class="py-3 text-center">View User's Order</h2>
+    <h2 class="py-3 text-center">Pesanan User</h2>
     <table id="myTable" class="table table-bordered table-hover table-striped dataTable">
         <tbody>
             <tr>
-                <td><strong>Ordered By:</strong></td>
+                <td><strong>Dipesan Oleh:</strong></td>
                 <td><?php echo $order['username'] ?></td>
             </tr>
             <tr>
-                <td><strong>Food Item:</strong></td>
-                <td><?php echo $order['d_name'] ?></td>
+                <td><strong>Menu Item:</strong></td>
+                <td><?php echo $order['nama_menu'] ?></td>
             </tr>
             <tr>
                 <td><strong>Quantity:</strong></td>
@@ -28,14 +28,14 @@
             </tr>
             <form method="post" action="<?php echo base_url().'admin/orders/updateOrder/'.$order['order_id']; ?>">
                 <tr>
-                    <td><strong>Pilih status pesanan:</strong></td>
+                    <td><strong>Status pesanan:</strong></td>
                     <td>
                         <select class="form-control" name="status"
                             class="<?php echo (form_error('status') != "") ? 'is-invalid' : '';?>">
-                            <option>Select Status</option>
-                            <option value="in process">In Process</option>
-                            <option value="closed">Closed/Delivered</option>
-                            <option value="rejected">Rejected</option>
+                            <option>Pilih status</option>
+                            <option value="dalam proses">Dalam proses</option>
+                            <option value="terkirim">Terkirim</option>
+                            <option value="dibatalkan">Dibatalkan</option>
                         </select>
                         <?php echo form_error('status');?>
                     </td>

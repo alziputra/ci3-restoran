@@ -16,7 +16,7 @@ class Dish extends CI_Controller {
         $this->load->model('Store_model');
         $res = $this->Store_model->getStore($id);
 
-        $data['dishesh'] = $menuhidangan;
+        $data['tb_menu'] = $menuhidangan;
         $data['res'] = $res;
         $this->load->view('front/partials/header');
         $this->load->view('front/dish', $data);
@@ -27,11 +27,11 @@ class Dish extends CI_Controller {
         $this->load->model('Menu_model');
         $menuhidangan = $this->Menu_model->getSingleDish($id);
         $data = array (
-            'id'    => $menuhidangan['d_id'],
-            'r_id'  => $menuhidangan['r_id'],
+            'id'    => $menuhidangan['menu_id'],
+            'resto_id'  => $menuhidangan['resto_id'],
             'qty'   =>1,
-            'price' => $menuhidangan['price'],
-            'name' => $menuhidangan['name'],
+            'harga' => $menuhidangan['harga'],
+            'nama_menu' => $menuhidangan['nama_menu'],
             'image' => $menuhidangan['img']
         );
         $this->cart->insert($data);

@@ -34,7 +34,7 @@
                         <span><i class="fa fa-utensils" style="color:#17a2b8; font-size: 2.5em;"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <h2><?php echo $countDish; ?></h2>
+                        <h2><?php echo $countMenu; ?></h2>
                         <p class="m-b-0">Menu</p>
                     </div>
                 </div>
@@ -167,7 +167,7 @@
                             <?php foreach($dishReport as $report) { ?>
                             <tr>
                                 <td><?php echo $report->menu_id; ?></td>
-                                <td><?php echo $report->nama_name; ?></td>
+                                <td><?php echo $report->nama_menu; ?></td>
                                 <td><?php echo $report->qty; ?></td>
                             </tr>
                             <?php } ?>

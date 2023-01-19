@@ -36,7 +36,7 @@
                     <?php foreach($orders as $order) { ?>
                     <tr>
                         <td><?php echo $order['username']; ?></td>
-                        <td><?php echo $order['d_name']; ?></td>
+                        <td><?php echo $order['nama_menu']; ?></td>
                         <td><?php echo $order['quantity']; ?></td>
                         <td><?php echo "Rp ".$order['harga']; ?></td>
                         <td><?php echo $order['alamat']; ?></td>
@@ -57,7 +57,7 @@
                         <td><?php echo $order['date']; ?></td>
                         <td>
                             <a href="<?php echo base_url().'admin/orders/processOrder/'.$order['order_id'];?>"
-                                class="btn btn-info mb-1">                               <i class="fas fa-arrow-alt-circle-right"></i> Proses</a>
+                                class="btn btn-info mb-1"><i class="fas fa-arrow-alt-circle-right"></i> Proses</a>
                             <a href="<?php echo base_url().'admin/orders/deleteOrder/'.$order['order_id']?>"
                                 class="btn btn-danger"><i class="fas fa-trash-alt"></i> Hapus</a>
                         </td>

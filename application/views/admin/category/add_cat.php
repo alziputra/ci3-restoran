@@ -1,5 +1,5 @@
 <div class="container shadow-container">
-    <h2 class="p-2 text-center">Add Restaurant Category</h2>
+    <h2 class="p-2 text-center">Tambah Restoran Kategori</h2>
     <form action="<?php echo base_url().'admin/category/create_category';?>" class="container my-3" method="POST" id="myForm">
         <div class="form-group">
             <label for="category">Category</label>
@@ -8,7 +8,7 @@
             <span></span>
         </div>
         <button type="submit" class="btn btn-primary mr-2">Submit</button>
-        <a class="btn btn-secondary" href="<?php echo base_url().'admin/category/index';?>">Back</a>
+        <a class="btn btn-secondary" href="<?php echo base_url().'admin/category/index';?>">Kembali</a>
     </form>
 </div>
 

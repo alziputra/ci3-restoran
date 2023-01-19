@@ -15,7 +15,7 @@ class User extends CI_Controller {
     public function index() {
         $this->load->model('User_model');
         $users = $this->User_model->getUsers();
-        $data['tb_users'] = $users;
+        $data['users'] = $users;
         $this->load->view('admin/partials/header');
         $this->load->view('admin/user/list', $data);
         $this->load->view('admin/partials/footer');
@@ -26,20 +26,22 @@ class User extends CI_Controller {
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<p class="invalid-feedback">','</p>');
         $this->form_validation->set_rules('username', 'Username','trim|required');
-        $this->form_validation->set_rules('name', 'Name','trim|required');
+        $this->form_validation->set_rules('firstname', 'First Name','trim|required');
+        $this->form_validation->set_rules('lastname', 'Last Name','trim|required');
         $this->form_validation->set_rules('email', 'Email','trim|required');
         $this->form_validation->set_rules('password', 'Password','trim|required');
-        $this->form_validation->set_rules('nohp', 'No hp','trim|required');
-        $this->form_validation->set_rules('alamat', 'Alamat','trim|required');
+        $this->form_validation->set_rules('phone', 'Phone','trim|required');
+        $this->form_validation->set_rules('address', 'Address','trim|required');
 
         if($this->form_validation->run() == true) {
 
             $formArray['username'] = $this->input->post('username');
-            $formArray['nama_user'] = $this->input->post('name');
+            $formArray['f_name'] = $this->input->post('firstname');
+            $formArray['l_name'] = $this->input->post('lastname');
             $formArray['email'] = $this->input->post('email');
             $formArray['password'] = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
-            $formArray['no_hp'] = $this->input->post('nohp');
-            $formArray['alamat'] = $this->input->post('alamat');
+            $formArray['phone'] = $this->input->post('phone');
+            $formArray['address'] = $this->input->post('address');
 
 
             $this->User_model->create($formArray);
@@ -61,27 +63,29 @@ class User extends CI_Controller {
         $user = $this->User_model->getUser($id);
 
         if(empty($user)) {
-            $this->session->set_flashdata('error', 'User tidak ditemukan');
+            $this->session->set_flashdata('error', 'User not found');
             redirect(base_url().'admin/user/index');
         }
 
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<p class="invalid-feedback">','</p>');
         $this->form_validation->set_rules('username', 'Username','trim|required');
-        $this->form_validation->set_rules('name', 'Name','trim|required');
+        $this->form_validation->set_rules('firstname', 'First Name','trim|required');
+        $this->form_validation->set_rules('lastname', 'Last Name','trim|required');
         $this->form_validation->set_rules('email', 'Email','trim|required');
         $this->form_validation->set_rules('password', 'Password','trim|required');
-        $this->form_validation->set_rules('nohp', 'No hp','trim|required');
-        $this->form_validation->set_rules('alamat', 'Alamat','trim|required');
+        $this->form_validation->set_rules('phone', 'Phone','trim|required');
+        $this->form_validation->set_rules('address', 'Address','trim|required');
 
         if($this->form_validation->run() == true) { 
 
             $formArray['username'] = $this->input->post('username');
-            $formArray['nama_user'] = $this->input->post('name');
+            $formArray['f_name'] = $this->input->post('firstname');
+            $formArray['l_name'] = $this->input->post('lastname');
             $formArray['email'] = $this->input->post('email');
             $formArray['password'] = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
-            $formArray['no_hp'] = $this->input->post('nohp');
-            $formArray['alamat'] = $this->input->post('alamat');
+            $formArray['phone'] = $this->input->post('phone');
+            $formArray['address'] = $this->input->post('address');
 
 
             $this->User_model->update($id,$formArray);
@@ -109,7 +113,7 @@ class User extends CI_Controller {
 
         $this->User_model->delete($id);
 
-        $this->session->set_flashdata('success', 'Data user berhasil dihapus');
+        $this->session->set_flashdata('success', 'User deleted successfully');
         redirect(base_url().'admin/user/index');
 
     }

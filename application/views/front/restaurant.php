@@ -1,7 +1,7 @@
 <div class="container-fluid padding">
     <div class="row welcome text-center welcome">
         <div class="col-12">
-            <h1 class="display-4">Restaurants</h1>
+            <h1 class="display-4">Restoran</h1>
         </div>
         <hr>
     </div>
@@ -20,7 +20,7 @@
                     <p class="card-text mb-0"><?php echo $store['alamat']; ?></p>
                     <hr>
                     <p class="card-text mb-0"></p>
-                    <p class="card-text mb-0">OPENING HOURS</p>
+                    <p class="card-text mb-0">JAM BUKA</p>
                     <p class="card-text mb-0"><?php echo $store['open_days']; ?></p>
                     <p class="card-text"><?php echo $store['open_hr']; ?> - <?php echo $store['close_hr']; ?></p>
                     <hr>

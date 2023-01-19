@@ -39,15 +39,15 @@ class Store extends CI_Controller {
         $this->load->model('Store_model');
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<p class="invalid-feedback">','</p>');
-        $this->form_validation->set_rules('res_name', 'Restaurant name','trim|required');
+        $this->form_validation->set_rules('res_name', 'Nama restoran','trim|required');
         $this->form_validation->set_rules('email', 'Email','trim|required');
-        $this->form_validation->set_rules('phone', 'Phone','trim|required');
+        $this->form_validation->set_rules('phone', 'Kontak','trim|required');
         $this->form_validation->set_rules('url', 'URL','trim|required');
-        $this->form_validation->set_rules('o_hr', 'o_hr','trim|required');
-        $this->form_validation->set_rules('c_hr', 'c_hr','trim|required');
-        $this->form_validation->set_rules('o_days', 'o_days','trim|required');
-        $this->form_validation->set_rules('c_name', 'category','trim|required');
-        $this->form_validation->set_rules('address', 'Address','trim|required');
+        $this->form_validation->set_rules('open_hr', 'jam buka','trim|required');
+        $this->form_validation->set_rules('close_hr', 'jam tutup','trim|required');
+        $this->form_validation->set_rules('open_days', 'hari buka','trim|required');
+        $this->form_validation->set_rules('kategori_nama', 'kategori','trim|required');
+        $this->form_validation->set_rules('alamat', 'alamat','trim|required');
 
         if($this->form_validation->run() == true) {
 
@@ -66,15 +66,15 @@ class Store extends CI_Controller {
                     
 
                     $formArray['img'] = $data['file_name'];
-                    $formArray['name'] = $this->input->post('res_name');
+                    $formArray['nama_resto'] = $this->input->post('res_name');
                     $formArray['email'] = $this->input->post('email');
                     $formArray['phone'] = $this->input->post('phone');
                     $formArray['url'] = $this->input->post('url');
-                    $formArray['o_hr'] = $this->input->post('o_hr');
-                    $formArray['c_hr'] = $this->input->post('c_hr');
-                    $formArray['o_days'] = $this->input->post('o_days');
-                    $formArray['c_id'] = $this->input->post('c_name');
-                    $formArray['address'] = $this->input->post('address');
+                    $formArray['open_hr'] = $this->input->post('open_hr');
+                    $formArray['close_hr'] = $this->input->post('close_hr');
+                    $formArray['open_days'] = $this->input->post('open_days');
+                    $formArray['kategori_id'] = $this->input->post('kategori_nama');
+                    $formArray['alamat'] = $this->input->post('alamat');
         
                     $this->Store_model->create($formArray);
         
@@ -98,11 +98,11 @@ class Store extends CI_Controller {
                 $formArray['email'] = $this->input->post('email');
                 $formArray['phone'] = $this->input->post('phone');
                 $formArray['url'] = $this->input->post('url');
-                $formArray['o_hr'] = $this->input->post('o_hr');
-                $formArray['c_hr'] = $this->input->post('c_hr');
-                $formArray['o_days'] = $this->input->post('o_days');
-                $formArray['c_id'] = $this->input->post('c_name');
-                $formArray['address'] = $this->input->post('address');
+                $formArray['open_hr'] = $this->input->post('open_hr');
+                $formArray['close_hr'] = $this->input->post('close_hr');
+                $formArray['open_days'] = $this->input->post('open_days');
+                $formArray['kategori_id'] = $this->input->post('kategori_nama');
+                $formArray['alamat'] = $this->input->post('alamat');
     
                 $this->Store_model->create($formArray);
     
@@ -140,15 +140,15 @@ class Store extends CI_Controller {
         $this->load->library('upload', $config);
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<p class="invalid-feedback">','</p>');
-        $this->form_validation->set_rules('res_name', 'Restaurant name','trim|required');
+        $this->form_validation->set_rules('res_name', 'Nama restoran','trim|required');
         $this->form_validation->set_rules('email', 'Email','trim|required');
-        $this->form_validation->set_rules('phone', 'Phone','trim|required');
+        $this->form_validation->set_rules('phone', 'Kontak','trim|required');
         $this->form_validation->set_rules('url', 'URL','trim|required');
-        $this->form_validation->set_rules('o_hr', 'o_hr','trim|required');
-        $this->form_validation->set_rules('c_hr', 'c_hr','trim|required');
-        $this->form_validation->set_rules('o_days', 'o_days','trim|required');
-        $this->form_validation->set_rules('c_name', 'category','trim|required');
-        $this->form_validation->set_rules('address', 'Address','trim|required');
+        $this->form_validation->set_rules('open_hr', 'jam buka','trim|required');
+        $this->form_validation->set_rules('close_hr', 'jam tutup','trim|required');
+        $this->form_validation->set_rules('open_days', 'hari buka','trim|required');
+        $this->form_validation->set_rules('kategori_nama', 'kategori','trim|required');
+        $this->form_validation->set_rules('alamat', 'alamat','trim|required');
 
         if($this->form_validation->run() == true) {
 
@@ -170,11 +170,11 @@ class Store extends CI_Controller {
                     $formArray['email'] = $this->input->post('email');
                     $formArray['phone'] = $this->input->post('phone');
                     $formArray['url'] = $this->input->post('url');
-                    $formArray['o_hr'] = $this->input->post('o_hr');
-                    $formArray['c_hr'] = $this->input->post('c_hr');
-                    $formArray['o_days'] = $this->input->post('o_days');
-                    $formArray['c_id'] = $this->input->post('c_name');
-                    $formArray['address'] = $this->input->post('address');
+                    $formArray['open_hr'] = $this->input->post('open_hr');
+                    $formArray['close_hr'] = $this->input->post('close_hr');
+                    $formArray['open_days'] = $this->input->post('open_days');
+                    $formArray['kategori_id'] = $this->input->post('kategori_nama');
+                    $formArray['alamat'] = $this->input->post('alamat');
         
                     $this->Store_model->update($id, $formArray);
         
@@ -210,11 +210,11 @@ class Store extends CI_Controller {
                 $formArray['email'] = $this->input->post('email');
                 $formArray['phone'] = $this->input->post('phone');
                 $formArray['url'] = $this->input->post('url');
-                $formArray['o_hr'] = $this->input->post('o_hr');
-                $formArray['c_hr'] = $this->input->post('c_hr');
-                $formArray['o_days'] = $this->input->post('o_days');
-                $formArray['c_id'] = $this->input->post('c_name');
-                $formArray['address'] = $this->input->post('address');
+                $formArray['open_hr'] = $this->input->post('open_hr');
+                $formArray['close_hr'] = $this->input->post('close_hr');
+                $formArray['open_days'] = $this->input->post('open_days');
+                $formArray['kategori_id'] = $this->input->post('kategori_nama');
+                $formArray['alamat'] = $this->input->post('alamat');
     
                 $this->Store_model->update($id ,$formArray);
     

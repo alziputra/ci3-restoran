@@ -49,13 +49,13 @@ class Order_model extends CI_Model {
     }
 
     public function countDeliveredOrders() {
-        $this->db->where('status','closed');
+        $this->db->where('status','terkirim');
         $query = $this->db->get('tb_orders');
         return $query->num_rows();
     }
 
     public function countRejectedOrders() {
-        $this->db->where('status','rejected');
+        $this->db->where('status','dibatalkan');
         $query = $this->db->get('tb_orders');
         return $query->num_rows();
     }
