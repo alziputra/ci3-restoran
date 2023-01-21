@@ -16,7 +16,7 @@
         <div class="d-flex justify-content-between align-items-center">
             <!-- area button tambah -->
             <nav>
-                <button id="btn-add" name="btn-add" class="btn btn-secondary mb-3" onclick="return tambahMenu()"><i class="fas fa-plus mr-1 "></i>Tambah restoran</button> 
+                <button id="btn-add" name="btn-add" class="btn btn-secondary mb-3" onclick="return tambahMenu()"><i class="fas fa-plus mr-1 "></i>Tambah Menu</button> 
             </nav>
             <input class="form-control mb-3" id="myInput" type="text" placeholder="Cari ..." style="width:50%;">
         </div>
