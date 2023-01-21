@@ -41,7 +41,7 @@ class Admin_model extends CI_Model {
     public function mostOrderedMenu() {
         $sql = 'SELECT _order.resto_id, _resto.nama_resto, _order.harga, _order.nama_menu, 
         MAX(_order.quantity) AS quantity, 
-        SUM(price) AS total
+        SUM(harga) AS total
         FROM tb_orders AS _order
         INNER JOIN tb_restoran as _resto
         ON _order.resto_id = _resto.resto_id

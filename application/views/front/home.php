@@ -1,48 +1,9 @@
-<div id="slides" class="carousel slide carousel-cus" data-ride="carousel">
-    <ul class="carousel-indicators">
-        <li data-target="#slides" data-slide-to="0" class="active"></li>
-        <li data-target="#slides" data-slide-to="1"></li>
-        <li data-target="#slides" data-slide-to="2"></li>
-    </ul>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="<?php echo base_url().'public/front/img/bfbrg.jpg';?>" alt="FriesBrgrImg">
-            <div class="carousel-caption text-left">
-                <h1 class="display-2">Hungry?!</h1>
-                <h3>Good, we are here to serve you</h3>
-                <a href="<?php echo base_url().'restaurant/index'?>" class="btn btn-outline-light btn-lg">Pesan Sekarang</a>
-                <a href="<?php echo base_url().'restaurant/index'?>" class="btn btn-primary btn-lg">View Menu</a>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="<?php echo base_url().'public/front/img/spaghetti-bg.jpg';?>" alt="Spaghetti">
-            <div class="carousel-caption text-right">
-                <h1 class="display-2">Hungry?!</h1>
-                <h3>Good, we are here to serve you</h3>
-                <a href="<?php echo base_url().'restaurant/index'?>" class="btn btn-outline-light btn-lg">Order Now</a>
-                <a href="<?php echo base_url().'restaurant/index'?>" class="btn btn-primary btn-lg">View Menu</a>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="<?php echo base_url().'public/front/img/snwbg.jpg';?>" alt="corn">
-            <div class="carousel-caption text-right">
-                <h1 class="display-2">Hungry?!</h1>
-                <h3>Good, we are here to serve you</h3>
-                <a href="<?php echo base_url().'restaurant/index'?>" class="btn btn-outline-light btn-lg">Order Now</a>
-                <a href="<?php echo base_url().'restaurant/index'?>" class="btn btn-primary btn-lg">View Menu</a>
-            </div>
-        </div>
-    </div>
-</div>
 <div class="container-fluid padding">
     <div class="row text-center welcome">
         <div class="col-12">
             <h1 class="display-4">3 Langkah Mudah Untuk Diikuti</h1>
         </div>
         <hr>
-        <div class="col-12">
-            <p class="lead">Cara termudah untuk makanan Anda. Sistem Pemesanan Makanan menyediakan pengiriman segar dalam 30 menit dan memberikan makanan gratis jika pesanan tidak tepat waktu. Jadi tunggu apalagi, ayo pesan sekarang juga!</p>
-        </div>
     </div>
 </div>
 <div class="container-fluid padding">

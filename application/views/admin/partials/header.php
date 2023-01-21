@@ -40,16 +40,9 @@
                             class="nav-link">Kategori</a>
                     </li>
                     <!-- nav menu restoran -->
-                    <li class="nav-item dropdown active">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Menu
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="<?php echo base_url().'admin/menu/';?>">Kelola Menu</a>
-                            <a class="dropdown-item" href="<?php echo base_url().'admin/menu/create_menu';?>">Tambah
-                                Menu</a>
-                        </div>
+                    <li class="nav-item active">
+                        <a href="<?php echo base_url().'admin/menu/';?>"
+                            class="nav-link">Menu</a>
                     </li>
                     <li class="nav-item active">
                         <a href="<?php echo base_url().'admin/orders/';?>"
@@ -63,13 +56,3 @@
             </div>
         </div>
     </nav>
-    <script>
-    $(document).ready(function() {
-        $(".dropdown").hover(function() {
-            var dropdownMenu = $(this).children(".dropdown-menu");
-            if (dropdownMenu.is(":visible")) {
-                dropdownMenu.parent().toggleClass("open");
-            }
-        });
-    });
-    </script>

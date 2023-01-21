@@ -1,14 +1,11 @@
-<div class="container">
+<div class="container p-md-5 ">
     <div class="row">
         <div class="col-md-3">
             <div class="card shadow p-30">
                 <div class="media">
-                    <div class="media-left meida media-middle">
-                        <span><i class="fa fa-users" style="color:#d8ad2e;font-size: 2.5em;"></i></span>
-                    </div>
                     <div class="media-body media-text-right">
                         <h2><?php echo $countUser; ?></h2>
-                        <p class="m-b-0">User/s</p>
+                        <p class="m-b-0">User/Konsumen</p>
                     </div>
                 </div>
             </div>
@@ -17,9 +14,6 @@
         <div class="col-md-3">
             <div class="card shadow p-30">
                 <div class="media">
-                    <div class="media-left meida media-middle">
-                        <span><i id="iarchive" class="fa fa-building" style="color:#357ae8;font-size: 2.5em;"></i></span>
-                    </div>
                     <div class="media-body media-text-right">
                         <h2><?php echo $countStore; ?></h2>
                         <p class="m-b-0">Restoran</p>
@@ -30,9 +24,6 @@
         <div class="col-md-3">
             <div class="card shadow p-30">
                 <div class="media">
-                    <div class="media-left meida media-middle">
-                        <span><i class="fa fa-utensils" style="color:#17a2b8; font-size: 2.5em;"></i></span>
-                    </div>
                     <div class="media-body media-text-right">
                         <h2><?php echo $countMenu; ?></h2>
                         <p class="m-b-0">Menu</p>
@@ -44,12 +35,9 @@
         <div class="col-md-3">
             <div class="card shadow p-30">
                 <div class="media">
-                    <div class="media-left meida media-middle">
-                        <span><i class="fa fa-file" style="color:#9466de; font-size: 2.5em;"></i></span>
-                    </div>
                     <div class="media-body media-text-right">
                         <h2><?php echo $countOrders; ?></h2>
-                        <p class="m-b-0">Total Order/s</p>
+                        <p class="m-b-0">Total Order</p>
                     </div>
                 </div>
             </div>
@@ -58,9 +46,6 @@
         <div class="col-md-3">
             <div class="card shadow p-30">
                 <div class="media">
-                    <div class="media-left meida media-middle">
-                        <span><i class="fa fa-th-large" style="color:#505050; font-size: 2.5em;"></i></span>
-                    </div>
                     <div class="media-body media-text-right">
                         <h2><?php echo $countCategory;?></h2>
                         <p class="m-b-0">Kategori</p>
@@ -72,12 +57,9 @@
         <div class="col-md-3">
             <div class="card shadow p-30">
                 <div class="media">
-                    <div class="media-left meida media-middle">
-                        <span><i class="fa fa-spinner" style="color:#ad6d9c; font-size: 2.5em;"></i></span>
-                    </div>
                     <div class="media-body media-text-right">
                         <h2><?php echo $countPendingOrders; ?></h2>
-                        <p class="m-b-0">Pending Order</p>
+                        <p class="m-b-0">Pesanan ditunda</p>
                     </div>
                 </div>
             </div>
@@ -86,12 +68,9 @@
         <div class="col-md-3">
             <div class="card shadow p-30">
                 <div class="media">
-                    <div class="media-left meida media-middle">
-                        <span><i class="fa fa-check-square" style="color:#28a745; font-size: 2.5em;"></i></span>
-                    </div>
                     <div class="media-body media-text-right">
                         <h2><?php echo $countDeliveredOrders; ?></h2> 
-                        <p class="m-b-0">Delivered Order</p>
+                        <p class="m-b-0">Pesanan terkirim</p>
                     </div>
                 </div>
             </div>
@@ -100,88 +79,10 @@
         <div class="col-md-3">
             <div class="card shadow p-30">
                 <div class="media">
-                    <div class="media-left meida media-middle">
-                        <span><i class="fa fa-times-circle" style="color:#dc3545; font-size: 2.5em;"></i></span>
-                    </div>
                     <div class="media-body media-text-right">
                         <h2><?php echo $countRejectedOrders; ?></h2>
-                        <p class="m-b-0">Rejected Order</p>
+                        <p class="m-b-0">Pesanan dibatalkan</p>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 mt-3">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2>Restoran Report</h2>
-                </div>
-                <div class="col-md-12">
-                    <table class="table table-striped table-responsive table-hover">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nama Restoran</th>
-                                <th>Total Penjualan</th>
-                            </tr>
-                        </thead>
-                        <tbody id="myTable">
-                            <?php if(!empty($resReport)) {?>
-                            <?php foreach($resReport as $report) { ?>
-                            <tr>
-                                <td><?php echo $report->resto_id; ?></td>
-                                <td><?php echo $report->nama_resto; ?></td>
-                                <td><?php echo $report->harga; ?></td>
-                            </tr>
-                            <?php } ?>
-                            <?php } else {?>
-                            <tr>
-                                <td colspan="4">Data tidak ditemukan</td>
-                            </tr>
-                            <?php }?>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-md-12">
-                    <a href="<?php $id=1; echo base_url().'admin/home/generate_pdf/'.$id; ?>"
-                        class="btn btn-success mt-3">Download Report</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 mt-3">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2>Menu Report</h2>
-                </div>
-                <div class="col-md-12">
-                    <table class="table table-striped table-responsive table-hover">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>nama Menu</th>
-                                <th>Ordered Count</th>
-                            </tr>
-                        </thead>
-                        <tbody id="myTable">
-                            <?php if(!empty($dishReport)) {?>
-                            <?php foreach($dishReport as $report) { ?>
-                            <tr>
-                                <td><?php echo $report->menu_id; ?></td>
-                                <td><?php echo $report->nama_menu; ?></td>
-                                <td><?php echo $report->qty; ?></td>
-                            </tr>
-                            <?php } ?>
-                            <?php } else {?>
-                            <tr>
-                                <td colspan="4">Data tidak ditemukan</td>
-                            </tr>
-                            <?php }?>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-md-12">
-                    <a href="<?php $id=2; echo base_url().'admin/home/generate_pdf/'.$id; ?>"
-                        class="btn btn-success mb-3">Download Report</a>
                 </div>
             </div>
         </div>

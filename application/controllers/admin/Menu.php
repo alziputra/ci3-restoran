@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit ('No direct script access allowed');
 class Menu extends CI_Controller {
     public function __construct(){
         parent::__construct();
-        $admin = $this->session->userdata('tb_admin');
+        $admin = $this->session->userdata('admin');
         if(empty($admin)) {
             $this->session->set_flashdata('msg', 'Your session has been expired');
             redirect(base_url().'admin/login/index');
@@ -21,6 +21,7 @@ class Menu extends CI_Controller {
         $this->load->view('admin/partials/footer');
     }
 
+    // fungsi untuk tambah data menu restoran
     public function create_menu(){
 
         $this->load->helper('common_helper');
@@ -38,16 +39,16 @@ class Menu extends CI_Controller {
         $this->form_validation->set_error_delimiters('<p class="invalid-feedback">','</p>');
         $this->form_validation->set_rules('nama_menu', 'Nama Menu','trim|required');
         $this->form_validation->set_rules('deskripsi', 'Deskripsi','trim|required');
-        $this->form_validation->set_rules('harga', 'harga','trim|required');
+        $this->form_validation->set_rules('harga', 'Harga','trim|required');
         $this->form_validation->set_rules('rname', 'Restaurant name','trim|required');
 
 
         if($this->form_validation->run() == true) {
 
             if(!empty($_FILES['image']['nama_menu'])){
-                //image is selected
+                // pilih foto
                 if($this->upload->do_upload('image')) {
-                    //file uploaded suceessfully
+                    // foto berhasil di upload
                     $data = $this->upload->data();
                     //resizing image
                     resizeImage($config['upload_path'].$data['file_name'], $config['upload_path'].'thumb/'.$data['file_name'], 300,270);
@@ -63,11 +64,11 @@ class Menu extends CI_Controller {
         
                     $this->Menu_model->create($formArray);
         
-                    $this->session->set_flashdata('dish_success', 'Menu added successfully');
+                    $this->session->set_flashdata('dish_success', 'Menu berhasil di tambahkan');
                     redirect(base_url(). 'admin/menu/index');
 
                 } else {
-                    //we got some errors
+                    // jika salah pada upload foto
                     $error = $this->upload->display_errors("<p class='invalid-feedback'>","</p>");
                     $data['errorImageUpload'] = $error; 
                     $data['stores']= $store;
@@ -78,7 +79,7 @@ class Menu extends CI_Controller {
 
                 
             } else {
-                //if no image is selcted we will add res data without image
+                //jika tidak ada foto yang dipilih, maka akan menambahkan data tanpa foto
                 $formArray['nama_menu'] = $this->input->post('nama_menu');
                 $formArray['deskripsi'] = $this->input->post('deskripsi');
                 $formArray['harga'] = $this->input->post('harga');
@@ -86,7 +87,7 @@ class Menu extends CI_Controller {
     
                 $this->Menu_model->create($formArray);
                 
-                $this->session->set_flashdata('dish_success', 'Dish added successfully');
+                $this->session->set_flashdata('dish_success', 'Menu berhasil ditambahkan');
                 redirect(base_url(). 'admin/menu/index');
             }
 
@@ -99,16 +100,17 @@ class Menu extends CI_Controller {
         
     }
 
+    // fungsi untuk edit menu restoran
     public function edit($id) {
         $this->load->model('Menu_model');
-        $dish = $this->Menu_model->getSingleMenu($id);
+        $menu = $this->Menu_model->getSingleMenu($id);
 
         $this->load->model('Store_model');
         $store = $this->Store_model->getStores();
         
-        if(empty($dish)) {
+        if(empty($menu)) {
 
-            $this->session->set_flashdata('error', 'Dish not found');
+            $this->session->set_flashdata('error', 'Menu tidak ditemukan');
             redirect(base_url(). 'admin/menu/index');
         }
 
@@ -147,22 +149,22 @@ class Menu extends CI_Controller {
 
                     //deleting existing images
 
-                    if (file_exists('./public/uploads/menu_img/'.$dish['img'])) {
-                        unlink('./public/uploads/menu_img/'.$dish['img']);
+                    if (file_exists('./public/uploads/menu_img/'.$menu['img'])) {
+                        unlink('./public/uploads/menu_img/'.$menu['img']);
                     }
 
-                    if(file_exists('./public/uploads/menu_img/thumb/'.$dish['img'])) {
-                        unlink('./public/uploads/menu_img/thumb/'.$dish['img']);
+                    if(file_exists('./public/uploads/menu_img/thumb/'.$menu['img'])) {
+                        unlink('./public/uploads/menu_img/thumb/'.$menu['img']);
                     }
         
-                    $this->session->set_flashdata('dish_success', 'Dish updated successfully');
+                    $this->session->set_flashdata('dish_success', 'Menu berhasil diperbaruis');
                     redirect(base_url(). 'admin/menu/index');
 
                 } else {
                     //we got some errors
                     $error = $this->upload->display_errors("<p class='invalid-feedback'>","</p>");
                     $data['errorImageUpload'] = $error;
-                    $data['dish'] = $dish;
+                    $data['dish'] = $menu;
                     $data['stores'] = $store;
                     $this->load->view('admin/partials/header');
                     $this->load->view('admin/menu/edit', $data);
@@ -171,7 +173,7 @@ class Menu extends CI_Controller {
 
                 
             } else {
-                //if no image is selcted we will add res data without image
+                //jika tidak ada foto yang dipilih, maka akan menambahkan data tanpa foto
                 $formArray['nama_menu'] = $this->input->post('nama_menu');
                 $formArray['deskripsi'] = $this->input->post('deskripsi');
                 $formArray['harga'] = $this->input->post('harga');
@@ -179,12 +181,12 @@ class Menu extends CI_Controller {
     
                 $this->Menu_model->update($id, $formArray);
     
-                $this->session->set_flashdata('dish_success', 'Dish updated successfully');
+                $this->session->set_flashdata('dish_success', 'Menu berhasil diperbarui');
                 redirect(base_url(). 'admin/menu/index');
             }
 
         } else {
-            $data['dish'] = $dish;
+            $data['dish'] = $menu;
             $data['stores'] = $store;
             $this->load->view('admin/partials/header');
             $this->load->view('admin/menu/edit', $data);
@@ -193,27 +195,29 @@ class Menu extends CI_Controller {
         }
 
     }
+
+    // fungsi untuk hapus menu restoran
     public function delete($id){
 
         $this->load->model('Menu_model');
-        $dish = $this->Menu_model->getSingleMenu($id);
+        $menu = $this->Menu_model->getSingleMenu($id);
 
-        if(empty($dish)) {
-            $this->session->set_flashdata('error', 'dish not found');
+        if(empty($menu)) {
+            $this->session->set_flashdata('error', 'Menu tidak ditemukan');
             redirect(base_url().'admin/menu');
         }
 
-        if (file_exists('./public/uploads/menu_img/'.$dish['img'])) {
-            unlink('./public/uploads/menu_img/'.$dish['img']);
+        if (file_exists('./public/uploads/menu_img/'.$menu['img'])) {
+            unlink('./public/uploads/menu_img/'.$menu['img']);
         }
 
-        if(file_exists('./public/uploads/menu_img/thumb/'.$dish['img'])) {
-            unlink('./public/uploads/menu_img/thumb/'.$dish['img']);
+        if(file_exists('./public/uploads/menu_img/thumb/'.$menu['img'])) {
+            unlink('./public/uploads/menu_img/thumb/'.$menu['img']);
         }
 
         $this->Menu_model->delete($id);
 
-        $this->session->set_flashdata('dish_success', 'dish deleted successfully');
+        $this->session->set_flashdata('dish_success', 'Menu berhasil dihapus');
         redirect(base_url().'admin/menu/index');
 
     }
