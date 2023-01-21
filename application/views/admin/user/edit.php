@@ -14,9 +14,9 @@
                     <span></span>
                 </div>
                 <div class="form-group">
-                    <label for="name">Nama</label>
-                    <input type="text" id="Name" class="form-control
-                    <?php echo (form_error('nama_user') != "") ? 'is-invalid' : '';?>" name="name"
+                    <label for="nama_user">Nama</label>
+                    <input type="text" id="nama_user" class="form-control
+                    <?php echo (form_error('nama_user') != "") ? 'is-invalid' : '';?>" name="nama_user"
                         value="<?php echo set_value('nama_user', $user['nama_user'])?>">
                     <?php echo form_error('nama_user'); ?>
                     <span></span>
@@ -34,7 +34,7 @@
                 <div class="form-group">
                     <label for="no_hp">Kontak</label>
                     <input type="number" id="no_hp" class="form-control
-                    <?php echo (form_error('no_hp') != "") ? 'is-invalid' : '';?>" name="no_hp" placeholder="Kontak"
+                    <?php echo (form_error('no_hp') != "") ? 'is-invalid' : '';?>" name="no_hp" placeholder="kontak"
                         value="<?php echo set_value('no_hp', $user['no_hp'])?>">
                     <?php echo form_error('no_hp'); ?>
                     <span></span>
@@ -58,13 +58,13 @@
             <span></span>
         </div>
         <button type="submit" class="btn btn-success">Simpan Perubahan</button>
-        <a href="<?php echo base_url().'admin/user/index'; ?>" class="btn btn-secondary">Kembali</a>
+        <a href="<?php echo base_url().'admin/user/index'; ?>" class="btn btn-secondary">Batal</a>
     </form>
 </div>
 <script>
 const form = document.getElementById('myForm');
 const userName = document.getElementById('userName');
-const Name = document.getElementById('Nama_user');
+const nama_user = document.getElementById('nama_user');
 const email = document.getElementById('email');
 const pass = document.getElementById('pass');
 const no_hp = document.getElementById('no_hp');
@@ -104,7 +104,7 @@ const successMsg = () => {
 
 const validate = () => {
     const userNameVal = userName.value.trim();
-    const NameVal = Name.value.trim();
+    const nama_userVal = nama_user.value.trim();
     const emailVal = email.value.trim();
     const passVal = pass.value.trim();
     const no_hpVal = no_hp.value.trim();
@@ -112,29 +112,29 @@ const validate = () => {
 
     //username validation
     if (userNameVal === "") {
-        setErrorMsg(userName, 'Username tidak boleh kosong');
+        setErrorMsg(userName, 'username tidak boleh kosong');
     } else if (userNameVal.length <= 4 || userNameVal.length >= 16) {
         setErrorMsg(userName, 'panjang username harus antara 5 - 15 karakter');
     } else if (!isNaN(userNameVal)) {
-        setErrorMsg(userName, 'Hanya karakter yang diperbolehkan');
+        setErrorMsg(userName, 'hanya karakter yang diperbolehkan');
     } else {
         setSuccessMsg(userName);
     }
 
-    //name validation
-    if (NameVal === "") {
-        setErrorMsg(Name, 'Name tidak boleh kosong');
-    } else if (!isNaN(NameVal)) {
-        setErrorMsg(Name, 'Hanya karakter yang diperbolehkan');
+    //nama_user validation
+    if (nama_userVal === "") {
+        setErrorMsg(nama_user, 'nama tidak boleh kosong');
+    } else if (!isNaN(nama_userVal)) {
+        setErrorMsg(nama_user, 'hanya karakter yang diperbolehkan');
     } else {
-        setSuccessMsg(Name);
+        setSuccessMsg(nama_user);
     }
 
     //email validation
     if (emailVal === "") {
         setErrorMsg(email, 'email tidak boleh kosong');
-    } else if (isEmail(emailVal) === "gagal") {
-        setErrorMsg(email, 'email yang valid saja');
+    } else if (isEmail(emailVal) === "fail") {
+        setErrorMsg(email, 'valid email only');
     } else {
         setSuccessMsg(email);
     }
@@ -148,7 +148,7 @@ const validate = () => {
         setSuccessMsg(pass);
     }
 
-    //no_hp validation
+    //kontak validation
     if (no_hpVal === "") {
         setErrorMsg(no_hp, 'kontak tidak boleh kosong');
     } else if (no_hpVal.length != 12) {
@@ -161,7 +161,7 @@ const validate = () => {
     if (alamatVal === "") {
         setErrorMsg(alamat, 'alamat tidak boleh kosong');
     } else if (alamatVal.length < 5) {
-        setErrorMsg(alamat, "alamat yang valid saja");
+        setErrorMsg(alamat, "Masukkan alamat yang valid saja");
     } else {
         setSuccessMsg(alamat);
     }
