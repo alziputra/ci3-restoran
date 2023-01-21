@@ -7,7 +7,7 @@ class User extends CI_Controller {
         parent::__construct();
         $admin = $this->session->userdata('admin');
         if(empty($admin)) {
-            $this->session->set_flashdata('msg', 'Sesi Anda telah kadaluwarsa');
+            $this->session->set_flashdata('msg', 'Sesi Anda telah habis');
             redirect(base_url().'admin/login/index');
         }
     }

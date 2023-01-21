@@ -1,16 +1,16 @@
 <div class="conatiner">
     <form action="<?php echo base_url().'admin/store/create_restaurant';?>" method="POST"
         class="form-container mx-auto  shadow-container" id="myForm" style="width:90%" enctype="multipart/form-data">
-        <h3 class="mb-3 p-2 text-center mb-3">Tambah Data Restoran</h3>
+        <h3 class="mb-3 p-2 text-center mb-3">Tambah Restoran</h3>
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label class="control-label">Nama Restoran</label>
-                    <input type="text" name="res_name" id="rname" class="form-control
-                    <?php echo (form_error('res_name') != "") ? 'is-invalid' : '';?>" placeholder="Nama Restoran"
-                    value="<?php echo set_value('res_name');?>">
+                    <input type="text" name="nama_resto" id="rname" class="form-control
+                    <?php echo (form_error('nama_resto') != "") ? 'is-invalid' : '';?>" placeholder="Nama restoran"
+                    value="<?php echo set_value('nama_resto');?>">
 
-                    <?php echo form_error('res_name'); ?>
+                    <?php echo form_error('nama_resto'); ?>
                     <span></span>
                 </div>
                 <div class="form-group">
@@ -25,7 +25,7 @@
                 <div class="form-group">
                     <label class="control-label">Kontak</label>
                     <input type="number" name="phone" id="phone" class="form-control
-                    <?php echo (form_error('phone') != "") ? 'is-invalid' : '';?>" placeholder="No.tlp/No.hp"
+                    <?php echo (form_error('phone') != "") ? 'is-invalid' : '';?>" placeholder="Phone / Handphone"
                         value="<?php echo set_value('phone');?>">
                         <?php echo form_error('phone'); ?>
                     <span></span>
@@ -45,12 +45,12 @@
                     <select name="open_hr" id="open_hr" class="form-control
                     <?php echo (form_error('open_hr') != "") ? 'is-invalid' : '';?>">
                         <option value="">--Pilih jam--</option>
-                        <option value="06.00">06.00</option>
-                        <option value="07.00">07.00</option>
-                        <option value="08.00">08.00</option>
-                        <option value="09.00">09.00</option>
-                        <option value="10.00">10.00</option>
-                        <option value="11.00">11.00</option>
+                        <option value="6am">6am</option>
+                        <option value="7am">7am</option>
+                        <option value="8am">8am</option>
+                        <option value="9am">9am</option>
+                        <option value="10am">10am</option>
+                        <option value="11am">11am</option>
                         <?php echo set_select('open_hr'); ?>
                     </select>
                     <?php echo form_error('open_hr');?>
@@ -61,15 +61,15 @@
                     <select name="close_hr" id="close_hr" class="form-control
                     <?php echo (form_error('close_hr') != "") ? 'is-invalid' : '';?>">
                         <option value="">--Pilih jam--</option>
-                        <option value="15.00">15.00</option>
-                        <option value="16.00">16.00</option>
-                        <option value="17.00">17.00</option>
-                        <option value="18.00">18.00</option>
-                        <option value="19.00">19.00</option>
-                        <option value="20.00">20.00</option>
-                        <option value="21.00">21.00</option>
-                        <option value="22.00">22.00</option>
-                        <option value="23.00">23.00</option>
+                        <option value="3pm">3pm</option>
+                        <option value="4pm">4pm</option>
+                        <option value="5pm">5pm</option>
+                        <option value="6pm">6pm</option>
+                        <option value="7pm">7pm</option>
+                        <option value="8pm">8pm</option>
+                        <option value="9pm">9pm</option>
+                        <option value="10pm">10pm</option>
+                        <option value="11pm">11pm</option>
                     </select>
                     <?php echo form_error('close_hr');?>
                     <span></span>
@@ -79,17 +79,18 @@
                     <label class="control-label">Hari Buka</label>
                     <select name="open_days" id="open_days" class="form-control <?php echo (form_error('open_days') != "") ? 'is-invalid' : '';?>">
                         <option value="">--Pilih hari--</option>
-                        <option value="senin-rabu">Senin-rabu</option>
-                        <option value="senin-kamis">Senin-kamis</option>
-                        <option value="senin-jumat">Senin-jumat</option>
-                        <option value="senin-jumat">Senin-sabtu</option>
-                        <option value="setiap-hari">Setiap hari</option>
+                        <option value="senin-selasa">senin-selasa</option>
+                        <option value="senin-rabu">senin-rabu</option>
+                        <option value="senin-kamis">senin-kamis</option>
+                        <option value="senin-jumat">senin-jumat</option>
+                        <option value="senin-sabtu">senin-sabtu</option>
+                        <option value="setiap hari">setiap hari</option>
                     </select>
                     <?php echo form_error('open_days');?>
                     <span></span>
                 </div> 
                 <div class="form-group">
-                    <label for="image">Image</label>
+                    <label for="image">Foto</label>
                     <input type="file" name="image" id="image" class="form-control 
                     <?php echo(!empty($errorImageUpload))  ? 'is-invalid' : '';?>">
                     <?php echo (!empty($errorImageUpload)) ? $errorImageUpload : '';?>
@@ -98,7 +99,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label">Kategori restoran</label>
+            <label class="control-label">Kategori Restoran</label>
             <select name="kategori_nama" id="kategori_nama" class="form-control <?php echo (form_error('kategori_nama') != "") ? 'is-invalid' : '';?>">
                 <option value="">--Pilih kategori--</option>
                 <?php 
@@ -125,8 +126,8 @@
             <span></span>
         </div>
         <div class="form-actions">
-            <input type="submit" id="btn" name="submit" class="btn btn-success" value="Save">
-            <a href="<?php echo base_url().'admin/store/index'?>" class="btn btn-secondary">Cancel</a>
+            <input type="submit" id="btn" name="submit" class="btn btn-success" value="Simpan">
+            <a href="<?php echo base_url().'admin/store/index'?>" class="btn btn-secondary">Batal</a>
         </div>
     </form>
 </div>
