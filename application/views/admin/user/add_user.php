@@ -2,7 +2,7 @@
 
     <form action="<?php echo base_url().'admin/user/create_user'; ?>" method="POST"
         class="form-container mx-auto shadow-container" style="width:80%" id="myForm">
-        <h3 class="mb-3 p-2 text-center">Add User's Information</h3>
+        <h3 class="mb-3 p-2 text-center">Informasi Tambah User</h3>
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
@@ -14,11 +14,11 @@
                     <span></span>
                 </div>
                 <div class="form-group">
-                    <label for="fullname">Nama</label>
+                    <label for="nama_user">Nama</label>
                     <input type="text" class="form-control
-                    <?php echo (form_error('fullname') != "") ? 'is-invalid' : '';?>" name="fullname" id="fullName"
-                        placeholder="Enter First Name" value="<?php echo set_value('fullname')?>">
-                    <?php echo form_error('fullname'); ?>
+                    <?php echo (form_error('nama_user') != "") ? 'is-invalid' : '';?>" name="nama_user" id="nama_user"
+                        placeholder="Enter Full Name" value="<?php echo set_value('nama_user')?>">
+                    <?php echo form_error('nama_user'); ?>
                     <span></span>
                 </div>
             </div>
@@ -32,11 +32,11 @@
                     <span></span>
                 </div>
                 <div class="form-group">
-                    <label for="phone">Kontak</label>
+                    <label for="no_hp">Kontak</label>
                     <input type="number" class="form-control
-                    <?php echo (form_error('phone') != "") ? 'is-invalid' : '';?>" name="phone" placeholder="ex : 62821xxxxxx"
-                        id="phone" value="<?php echo set_value('phone')?>">
-                    <?php echo form_error('phone'); ?>
+                    <?php echo (form_error('no_hp') != "") ? 'is-invalid' : '';?>" name="no_hp" placeholder="ex : 62821xxxxxx"
+                        id="no_hp" value="<?php echo set_value('no_hp')?>">
+                    <?php echo form_error('no_hp'); ?>
                     <span></span>
                 </div>
                 <div class="form-group">
@@ -64,10 +64,10 @@
 <script>
 const form = document.getElementById('myForm');
 const userName = document.getElementById('userName');
-const fullName = document.getElementById('fullName');
+const nama_user = document.getElementById('nama_user');
 const email = document.getElementById('email');
 const pass = document.getElementById('pass');
-const phone = document.getElementById('phone');
+const no_hp = document.getElementById('no_hp');
 const alamat = document.getElementById('alamat');
 
 form.addEventListener('submit', (event) => {
@@ -104,10 +104,10 @@ const successMsg = () => {
 
 const validate = () => {
     const userNameVal = userName.value.trim();
-    const fullNameVal = fullName.value.trim();
+    const nama_userVal = nama_user.value.trim();
     const emailVal = email.value.trim();
     const passVal = pass.value.trim();
-    const phoneVal = phone.value.trim();
+    const no_hpVal = no_hp.value.trim();
     const alamatVal = alamat.value.trim();
 
     //username validasi
@@ -122,19 +122,19 @@ const validate = () => {
     }
 
     //nama user validasi
-    if (fullNameVal === "") {
-        setErrorMsg(fullName, 'nama tidak boleh kosong');
-    } else if (!isNaN(fullNameVal)) {
-        setErrorMsg(fullName, 'hanya karakter yang diperbolehkan');
+    if (nama_userVal === "") {
+        setErrorMsg(nama_user, 'nama tidak boleh kosong');
+    } else if (!isNaN(nama_userVal)) {
+        setErrorMsg(nama_user, 'hanya karakter yang diperbolehkan');
     } else {
-        setSuccessMsg(fullName);
+        setSuccessMsg(nama_user);
     }
 
     //email validasi
     if (emailVal === "") {
         setErrorMsg(email, 'email tidak boleh kosong');
     } else if (isEmail(emailVal) === "fail") {
-        setErrorMsg(email, 'enter valid email only');
+        setErrorMsg(email, 'Masukkan email yang valid saja');
     } else {
         setSuccessMsg(email);
     }
@@ -148,20 +148,20 @@ const validate = () => {
         setSuccessMsg(pass);
     }
 
-    //phone validasi
-    if (phoneVal === "") {
-        setErrorMsg(phone, 'kontak tidak boleh kosong');
-    } else if (phoneVal.length != 10) {
-        setErrorMsg(phone, 'enter valid phone number only');
+    //no_hp validasi
+    if (no_hpVal === "") {
+        setErrorMsg(no_hp, 'kontak tidak boleh kosong');
+    } else if (no_hpVal.length != 12) {
+        setErrorMsg(no_hp, 'Masukkan nomor kontak yang valid saja');
     } else {
-        setSuccessMsg(phone);
+        setSuccessMsg(no_hp);
     }
 
     //alamat validasi
     if (alamatVal === "") {
         setErrorMsg(alamat, 'alamat tidak boleh kosong');
     } else if (alamatVal.length < 5) {
-        setErrorMsg(alamat, "Enter valid alamat only");
+        setErrorMsg(alamat, "Masukkan alamat yang valid saja");
     } else {
         setSuccessMsg(alamat);
     }

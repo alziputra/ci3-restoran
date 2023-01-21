@@ -26,22 +26,20 @@ class User extends CI_Controller {
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<p class="invalid-feedback">','</p>');
         $this->form_validation->set_rules('username', 'Username','trim|required');
-        $this->form_validation->set_rules('firstname', 'First Name','trim|required');
-        $this->form_validation->set_rules('lastname', 'Last Name','trim|required');
+        $this->form_validation->set_rules('nama_user', 'Full Name','trim|required');
         $this->form_validation->set_rules('email', 'Email','trim|required');
         $this->form_validation->set_rules('password', 'Password','trim|required');
-        $this->form_validation->set_rules('phone', 'Phone','trim|required');
-        $this->form_validation->set_rules('address', 'Address','trim|required');
+        $this->form_validation->set_rules('no_hp', 'Contact','trim|required');
+        $this->form_validation->set_rules('alamat', 'Address','trim|required');
 
         if($this->form_validation->run() == true) {
 
             $formArray['username'] = $this->input->post('username');
-            $formArray['f_name'] = $this->input->post('firstname');
-            $formArray['l_name'] = $this->input->post('lastname');
+            $formArray['nama_user'] = $this->input->post('nama_user');
             $formArray['email'] = $this->input->post('email');
             $formArray['password'] = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
-            $formArray['phone'] = $this->input->post('phone');
-            $formArray['address'] = $this->input->post('address');
+            $formArray['no_hp'] = $this->input->post('no_hp');
+            $formArray['alamat'] = $this->input->post('alamat');
 
 
             $this->User_model->create($formArray);
@@ -70,22 +68,20 @@ class User extends CI_Controller {
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<p class="invalid-feedback">','</p>');
         $this->form_validation->set_rules('username', 'Username','trim|required');
-        $this->form_validation->set_rules('firstname', 'First Name','trim|required');
-        $this->form_validation->set_rules('lastname', 'Last Name','trim|required');
+        $this->form_validation->set_rules('nama_user', 'Full Name','trim|required');
         $this->form_validation->set_rules('email', 'Email','trim|required');
         $this->form_validation->set_rules('password', 'Password','trim|required');
-        $this->form_validation->set_rules('phone', 'Phone','trim|required');
-        $this->form_validation->set_rules('address', 'Address','trim|required');
+        $this->form_validation->set_rules('no_hp', 'Contact','trim|required');
+        $this->form_validation->set_rules('alamat', 'Address','trim|required');
 
         if($this->form_validation->run() == true) { 
 
             $formArray['username'] = $this->input->post('username');
-            $formArray['f_name'] = $this->input->post('firstname');
-            $formArray['l_name'] = $this->input->post('lastname');
+            $formArray['nama_user'] = $this->input->post('nama_user');
             $formArray['email'] = $this->input->post('email');
             $formArray['password'] = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
-            $formArray['phone'] = $this->input->post('phone');
-            $formArray['address'] = $this->input->post('address');
+            $formArray['no_hp'] = $this->input->post('no_hp');
+            $formArray['alamat'] = $this->input->post('alamat');
 
 
             $this->User_model->update($id,$formArray);
