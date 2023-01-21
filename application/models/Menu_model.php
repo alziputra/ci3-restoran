@@ -33,7 +33,7 @@ class Menu_model extends CI_Model {
         return $query->num_rows();
     }
 
-    public function gettb_menu($id) {
+    public function getDishesh($id) {
         $this->db->where('resto_id', $id);
         $dish = $this->db->get('tb_menu')->result_array();
         return $dish;

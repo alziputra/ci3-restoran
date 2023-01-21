@@ -21,7 +21,7 @@ class Home extends CI_Controller {
     }
     public function index() {
         $data['countStore'] = $this->Store_model->countStore();
-        $data['countMenu'] = $this->Menu_model->countMenu();
+        $data['countDish'] = $this->Menu_model->countDish();
         $data['countUser'] = $this->User_model->countUser();
         $data['countOrders'] = $this->Order_model->countOrders();
         $data['countCategory'] = $this->Category_model->countCategory();

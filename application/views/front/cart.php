@@ -39,11 +39,11 @@ function updateCartItem(obj, rowid) {
                             src="<?php echo base_url().'public/uploads/dishesh/thumb/'.$image; ?>">
                     </td>
                     <td><?php echo $item['nama_menu']; ?></td>
-                    <td><?php echo 'Rp'. $item['harga']; ?></td>
+                    <td><?php echo 'Rp '. $item['harga']; ?></td>
                     <td><input type="number" class="form-control text-center" value="<?php echo $item['qty']; ?>"
                             onChange="updateCartItem(this, '<?php echo $item['rowid'] ?>')">
                     </td>
-                    <td><?php echo 'Rp'.$item['subtotal']; ?></td>
+                    <td><?php echo 'Rp '.$item['subtotal']; ?></td>
                     <td>
                         <a href="<?php echo base_url().'cart/removeItem/'.$item['rowid'] ; ?>"
                             onclick="return confirm('Are you sure?')"

@@ -25,7 +25,7 @@
             <div class="card shadow p-30">
                 <div class="media">
                     <div class="media-body media-text-right">
-                        <h2><?php echo $countMenu; ?></h2>
+                        <h2><?php echo $countDish; ?></h2>
                         <p class="m-b-0">Menu</p>
                     </div>
                 </div>

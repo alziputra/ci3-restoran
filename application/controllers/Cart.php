@@ -8,7 +8,7 @@ class Cart extends CI_Controller {
 
         $user = $this->session->userdata('user');
             if(empty($user)) {
-                $this->session->set_flashdata('msg', 'Sesi Anda telah kedaluwarsa');
+                $this->session->set_flashdata('msg', 'Your session has been expired');
                 redirect(base_url().'login/');
             }
 

@@ -23,10 +23,10 @@
                                 <img class="" width="100"
                                     src="<?php echo base_url().'public/uploads/dishesh/thumb/'.$image; ?>">
                             </td>
-                            <td><?php echo $item['name']; ?></td>
+                            <td><?php echo $item['nama_menu']; ?></td>
                             <td><?php echo 'Rp '.$item['harga']; ?></td>
                             <td><?php echo $item['qty']; ?></td>
-                            <td><?php echo '$'.$item['subtotal']; ?></td>
+                            <td><?php echo 'Rp '.$item['subtotal']; ?></td>
                         </tr>
                         <?php } ?>
                         <?php } else { ?>
@@ -41,7 +41,7 @@
                         <tr>
                             <td colspan="4"></td>
                             <?php  if($this->cart->total_items() > 0) { ?>
-                            <td class="text-left">Total: <b><?php echo '$'.$this->cart->total();?></b></td>
+                            <td class="text-left">Total: <b><?php echo 'Rp '.$this->cart->total();?></b></td>
                             <?php } ?>
                         </tr>
                     </tfoot>
