@@ -14,7 +14,7 @@
                     <span></span>
                 </div>
                 <div class="form-group">
-                    <label for="name">Name</label>
+                    <label for="name">Nama</label>
                     <input type="text" id="Name" class="form-control
                     <?php echo (form_error('nama_user') != "") ? 'is-invalid' : '';?>" name="name"
                         value="<?php echo set_value('nama_user', $user['nama_user'])?>">
@@ -32,9 +32,9 @@
                     <span></span>
                 </div>
                 <div class="form-group">
-                    <label for="no_hp">No. Hp</label>
+                    <label for="no_hp">Kontak</label>
                     <input type="number" id="no_hp" class="form-control
-                    <?php echo (form_error('no_hp') != "") ? 'is-invalid' : '';?>" name="no_hp" placeholder="No. Hp"
+                    <?php echo (form_error('no_hp') != "") ? 'is-invalid' : '';?>" name="no_hp" placeholder="Kontak"
                         value="<?php echo set_value('no_hp', $user['no_hp'])?>">
                     <?php echo form_error('no_hp'); ?>
                     <span></span>
@@ -114,7 +114,7 @@ const validate = () => {
     if (userNameVal === "") {
         setErrorMsg(userName, 'Username tidak boleh kosong');
     } else if (userNameVal.length <= 4 || userNameVal.length >= 16) {
-        setErrorMsg(userName, 'panjang username harus antara 5 dan 15"');
+        setErrorMsg(userName, 'panjang username harus antara 5 - 15 karakter');
     } else if (!isNaN(userNameVal)) {
         setErrorMsg(userName, 'Hanya karakter yang diperbolehkan');
     } else {
@@ -143,16 +143,16 @@ const validate = () => {
     if (passVal === "") {
         setErrorMsg(pass, 'password tidak boleh kosong');
     } else if (passVal.length <= 7 || passVal.length >= 16) {
-        setErrorMsg(pass, 'panjang password harus antara 8 dan 15');
+        setErrorMsg(pass, 'panjang password harus antara 8 - 15 karakter');
     } else {
         setSuccessMsg(pass);
     }
 
     //no_hp validation
     if (no_hpVal === "") {
-        setErrorMsg(no_hp, 'no_hp tidak boleh kosong');
-    } else if (no_hpVal.length != 10) {
-        setErrorMsg(no_hp, 'no handphone yang valid saja');
+        setErrorMsg(no_hp, 'kontak tidak boleh kosong');
+    } else if (no_hpVal.length != 12) {
+        setErrorMsg(no_hp, 'panjang kontak tidak boleh kurang dari 11 karakter');
     } else {
         setSuccessMsg(no_hp);
     }

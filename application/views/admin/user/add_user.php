@@ -9,7 +9,7 @@
                     <label for="username">Username</label>
                     <input type="text" class="form-control
                     <?php echo (form_error('username') != "") ? 'is-invalid' : '';?>" name="username" id="userName"
-                        placeholder="Enter Username" value="<?php echo set_value('username')?>">
+                        placeholder="Masukan Username" value="<?php echo set_value('username')?>">
                     <?php echo form_error('username'); ?>
                     <span></span>
                 </div>
@@ -17,7 +17,7 @@
                     <label for="nama_user">Nama</label>
                     <input type="text" class="form-control
                     <?php echo (form_error('nama_user') != "") ? 'is-invalid' : '';?>" name="nama_user" id="nama_user"
-                        placeholder="Enter Full Name" value="<?php echo set_value('nama_user')?>">
+                        placeholder="Masukan Nama" value="<?php echo set_value('nama_user')?>">
                     <?php echo form_error('nama_user'); ?>
                     <span></span>
                 </div>
@@ -114,7 +114,7 @@ const validate = () => {
     if (userNameVal === "") {
         setErrorMsg(userName, 'username tidak boleh kosong');
     } else if (userNameVal.length <= 4 || userNameVal.length >= 16) {
-        setErrorMsg(userName, 'panjang username harus antara 5 and 15"');
+        setErrorMsg(userName, 'panjang username harus antara 5 - 15 karakter');
     } else if (!isNaN(userNameVal)) {
         setErrorMsg(userName, 'hanya karakter yang diperbolehkan');
     } else {
@@ -143,7 +143,7 @@ const validate = () => {
     if (passVal === "") {
         setErrorMsg(pass, 'password tidak boleh kosong');
     } else if (passVal.length <= 7 || passVal.length >= 16) {
-        setErrorMsg(pass, 'panjang password harus antara 8 and 15');
+        setErrorMsg(pass, 'panjang password harus antara 8 - 15 karakter');
     } else {
         setSuccessMsg(pass);
     }
@@ -152,7 +152,7 @@ const validate = () => {
     if (no_hpVal === "") {
         setErrorMsg(no_hp, 'kontak tidak boleh kosong');
     } else if (no_hpVal.length != 12) {
-        setErrorMsg(no_hp, 'Masukkan nomor kontak yang valid saja');
+        setErrorMsg(no_hp, 'panjang kontak tidak boleh kurang dari 11 karakter');
     } else {
         setSuccessMsg(no_hp);
     }

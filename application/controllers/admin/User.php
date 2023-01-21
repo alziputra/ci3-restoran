@@ -7,7 +7,7 @@ class User extends CI_Controller {
         parent::__construct();
         $admin = $this->session->userdata('admin');
         if(empty($admin)) {
-            $this->session->set_flashdata('msg', 'Your session has been expired');
+            $this->session->set_flashdata('msg', 'Sesi Anda telah kadaluwarsa');
             redirect(base_url().'admin/login/index');
         }
     }
@@ -44,7 +44,7 @@ class User extends CI_Controller {
 
             $this->User_model->create($formArray);
 
-            $this->session->set_flashdata('success', 'User added successfully');
+            $this->session->set_flashdata('success', 'User berhasil di tambahkan');
             redirect(base_url(). 'admin/user/index');
 
 
@@ -61,7 +61,7 @@ class User extends CI_Controller {
         $user = $this->User_model->getUser($id);
 
         if(empty($user)) {
-            $this->session->set_flashdata('error', 'User not found');
+            $this->session->set_flashdata('error', 'User tidak ditemukan');
             redirect(base_url().'admin/user/index');
         }
 
@@ -86,7 +86,7 @@ class User extends CI_Controller {
 
             $this->User_model->update($id,$formArray);
 
-            $this->session->set_flashdata('success', 'User updated successfully');
+            $this->session->set_flashdata('success', 'User berhasil di update');
             redirect(base_url(). 'admin/user/index');
 
 
@@ -103,13 +103,13 @@ class User extends CI_Controller {
         $user = $this->User_model->getUser($id);
 
         if(empty($user)) {
-            $this->session->set_flashdata('error', 'User not found');
+            $this->session->set_flashdata('error', 'User tidak ditemukan');
             redirect(base_url().'admin/user/index');
         }
 
         $this->User_model->delete($id);
 
-        $this->session->set_flashdata('success', 'User deleted successfully');
+        $this->session->set_flashdata('success', 'User berhasil dihapus');
         redirect(base_url().'admin/user/index');
 
     }
