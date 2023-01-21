@@ -14,8 +14,8 @@ class Menu_model extends CI_Model {
 
     public function getSingleDish($id) {
         $this->db->where('menu_id', $id);
-        $menu = $this->db->get('tb_menu')->row_array();
-        return $menu;
+        $dish = $this->db->get('tb_menu')->row_array();
+        return $dish;
     }
 
     public function update($id, $formArray) {
@@ -28,14 +28,14 @@ class Menu_model extends CI_Model {
         $this->db->delete('tb_menu');
     }
 
-    public function countMenu() {
+    public function countDish() {
         $query = $this->db->get('tb_menu');
         return $query->num_rows();
     }
 
-    public function getDishesh($id) {
+    public function gettb_menu($id) {
         $this->db->where('resto_id', $id);
-        $menu = $this->db->get('tb_menu')->result_array();
-        return $menu;
+        $dish = $this->db->get('tb_menu')->result_array();
+        return $dish;
     }
 }

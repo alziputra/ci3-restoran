@@ -10,15 +10,14 @@
             <?php echo $this->session->flashdata('error');?>
         </div>
         <?php endif ?>
-
-        <div class="mb-5">
-            <h2 class="text-center">Kelola Menu Restoran</h2>
+        <div class="btn-group">
+            <h2>Semua Menu Restoran</h2>
         </div>
         <div class="d-flex justify-content-between align-items-center">
             <!-- area button tambah -->
             <nav>
-                <button id="btn-add" name="btn-add" class="btn btn-secondary mb-3" onclick="return tambahMenu()"><i class="fas fa-plus mr-1 "></i>Tambah Menu</button> 
-            </nav>  
+                <button id="btn-add" name="btn-add" class="btn btn-secondary mb-3" onclick="return tambahMenu()"><i class="fas fa-plus mr-1 "></i>Tambah restoran</button> 
+            </nav>
             <input class="form-control mb-3" id="myInput" type="text" placeholder="Cari ..." style="width:50%;">
         </div>
         <div class="table-responsive-sm">
@@ -26,26 +25,26 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Menu</th>
+                        <th>Nama Menu</th>
                         <th>Deskripsi</th>
                         <th>Harga</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody id="myTable">
-                    <?php if(!empty($menuresto)) { ?>
-                    <?php foreach($menuresto as $menu) {?>
+                    <?php if(!empty($dishesh)) { ?>
+                    <?php foreach($dishesh as $dish) {?>
                     <tr>
-                        <td><?php echo $menu['resto_id']; ?></td>
-                        <td><?php echo $menu['nama_menu']; ?></td>
-                        <td><?php echo $menu['deskripsi']; ?></td>
-                        <td><?php echo "Rp ".$menu['harga']; ?></td>
+                        <td><?php echo $dish['resto_id']; ?></td>
+                        <td><?php echo $dish['nama_menu']; ?></td>
+                        <td><?php echo $dish['deskripsi']; ?></td>
+                        <td><?php echo "Rp ".$dish['harga']; ?></td>
                         <td>
-                            <a href="<?php echo base_url().'admin/menu/edit/'.$menu['menu_id']; ?>"
+                            <a href="<?php echo base_url().'admin/menu/edit/'.$dish['menu_id']; ?>"
                                 class="btn btn-info mb-1"><i
                                     class="fas fa-edit mr-1"></i>Edit</a>
 
-                            <a href="javascript:void(0);" onclick="deleteMenu(<?php echo $menu['menu_id']; ?>)"
+                            <a href="javascript:void(0);" onclick="deleteMenu(<?php echo $dish['menu_id']; ?>)"
                                 class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</a>
 
                         </td>
@@ -53,7 +52,7 @@
                     <?php } ?>
                     <?php } else { ?>
                     <tr>
-                        <td colspan="4">Records not founds</td>
+                        <td colspan="4">Data tidak ditemukan</td>
                     </tr>
                     <?php }?>
                 </tbody>
@@ -63,9 +62,10 @@
 </div>
 <script type="text/javascript">
 function tambahMenu()
-    {
-        location.href="<?php echo base_url().'admin/menu/create_menu';?>"
-    }
+        {
+            location.href="<?php echo base_url().'admin/menu/create_menu';?>"
+        }
+
 function deleteMenu(id) {
     if (confirm("Are you sure you want to delete dish?")) {
         window.location.href = '<?php echo base_url().'admin/menu/delete/';?>' + id;

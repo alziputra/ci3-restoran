@@ -1,12 +1,12 @@
 <div class="conatiner">
     <form action="<?php echo base_url().'admin/menu/create_menu';?>" method="POST" id="myForm" name="myForm"
         class="form-container mx-auto  shadow-container" style="width:80%" enctype="multipart/form-data">
-        <h3 class="mb-3 text-center">Tambah Item Menu</h3>
+        <h3 class="mb-3 text-center">Tambah Menu Restoran</h3>
         <div class="form-group">
-            <label class="control-label">Select Restaurant</label>
-            <select name="rname" id="resname"
-                class="form-control <?php echo (form_error('rname') != "") ? 'is-invalid' : '';?>">
-                <option>--Pilih Restoran--</option>
+            <label class="control-label">Pilih Restoran</label>
+            <select name="namarestoran" id="resname"
+                class="form-control <?php echo (form_error('namarestoran') != "") ? 'is-invalid' : '';?>">
+                <option>--Pilih restoran--</option>
                 <?php 
                 if (!empty($stores)) { 
                     foreach($stores as $store) {
@@ -19,24 +19,24 @@
                 }
                 ?>
             </select>
-            <?php echo form_error('rname');?>
+            <?php echo form_error('namarestoran');?>
             <span></span>
         </div>
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="name">Nama Menu</label>
+                    <label for="nama_menu">Nama Menu</label>
                     <input type="text" class="form-control my-2 
-                    <?php echo (form_error('name') != "") ? 'is-invalid' : '';?>" name="name" id="name"
-                        placeholder="Enter Menu" value="<?php echo set_value('name'); ?>">
-                    <?php echo form_error('name'); ?>
+                    <?php echo (form_error('nama_menu') != "") ? 'is-invalid' : '';?>" name="nama_menu" id="nama_menu"
+                        placeholder="Enter Nama menu" value="<?php echo set_value('nama_menu'); ?>">
+                    <?php echo form_error('nama_menu'); ?>
                     <span></span>
                 </div>
                 <div class="form-group">
                     <label for="harga">Harga</label>
                     <input type="number" class="form-control my-2
                     <?php echo (form_error('harga') != "") ? 'is-invalid' : '';?>" id="harga" name="harga"
-                        placeholder="Enter harga" value="<?php echo set_value('harga'); ?>">
+                        placeholder="Enter Harga" value="<?php echo set_value('harga'); ?>">
                     <?php echo form_error('harga'); ?>
                     <span></span>
                 </div>
@@ -46,13 +46,13 @@
                     <label for="deskripsi">Deskripsi</label>
                     <input type="text" class="form-control my-2
                     <?php echo (form_error('deskripsi') != "") ? 'is-invalid' : '';?>" id="deskripsi" name="deskripsi"
-                        placeholder="Deskripsi" value="<?php echo set_value('deskripsi'); ?>">
+                        placeholder="deskripsi" value="<?php echo set_value('deskripsi'); ?>">
                     <?php echo form_error('deskripsi'); ?>
                     <span></span>
                 </div>
                 <div class="form-group">
-                    <label for="img">Menu Foto</label>
-                    <input type="file" id="image" name="image" placeholder="Enter Image" class="form-control my-2
+                    <label for="img">Foto</label>
+                    <input type="file" id="image" name="image" placeholder="Enter foto" class="form-control my-2
                     <?php echo(!empty($errorImageUpload))  ? 'is-invalid' : '';?>">
                     <?php echo (!empty($errorImageUpload)) ? $errorImageUpload : '';?>
                     <span></span>
@@ -66,7 +66,7 @@
 <script>
     const form = document.getElementById('myForm');
     const resname = document.getElementById("resname");
-    const menuname = document.getElementById("name");
+    const nama_menu = document.getElementById("nama_menu");
     const harga = document.getElementById("harga");
     const deskripsi = document.getElementById("deskripsi");
     const image = document.getElementById("image");
@@ -106,35 +106,35 @@
 
     const validate = () => {
         const resnameVal = resname.value.trim();
-        const menunameVal = menuname.value.trim();
+        const nama_menuVal = nama_menu.value.trim();
         const hargaVal = harga.value.trim();
         const deskripsiVal = deskripsi.value.trim();
         const imageVal = image.value.trim();
 
-        if (resnameVal === "--Select Restaurant--") {
-            setErrorMsg(resname, 'select restaurant name');
+        if (resnameVal === "--Pilih Restoran--") {
+            setErrorMsg(resname, 'Pilih nama restoran');
         } else {
             setSuccessMsg(resname);
         }
-        if (menunameVal === "") {
-            setErrorMsg(menuname, 'dish name cannot be blank');
+        if (nama_menuVal === "") {
+            setErrorMsg(nama_menu, 'nama menu tidak boleh kosong');
         } else {
-            setSuccessMsg(menuname);
+            setSuccessMsg(nama_menu);
         }
         if (hargaVal === "") {
-            setErrorMsg(harga, 'harga cannot be blank');
+            setErrorMsg(harga, 'harga tidak boleh kosong');
         } else {
             setSuccessMsg(harga);
         }
         if (deskripsiVal === "") {
-            setErrorMsg(deskripsi, 'deskripsi name cannot be empty');
+            setErrorMsg(deskripsi, 'deskripsi tidak boleh kosong');
         } else {
             setSuccessMsg(deskripsi);
         }
         if (imageVal == "") {
             setErrorMsg(image, 'select image');
         } else if(isImage(imageVal) === "fail"){
-            setErrorMsg(image, 'file format is not valid');
+            setErrorMsg(image, 'format file tidak valid');
         } else {
             setSuccessMsg(image);
         }

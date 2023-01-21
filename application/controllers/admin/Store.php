@@ -161,7 +161,7 @@ class Store extends CI_Controller {
                     $data = $this->upload->data();
 
 
-                    //resizing image
+                    // mengubah ukuran foto
                     resizeImage($config['upload_path'].$data['file_name'], $config['upload_path'].'thumb/'.$data['file_name'], 300,270);
 
 
